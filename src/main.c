@@ -25,6 +25,7 @@ int main() {
 
     // Prove: A^2 - 4A - 5I(3) = O
     echo("Test 1:");
+#if 0
     Matrix lhs = ({
         Matrix a_sqr   = matrix_power(matrix_clone(a), 2);
         Matrix four_a  = matrix_scale(a, 4);
@@ -34,6 +35,16 @@ int main() {
         Matrix res     = matrix_subtract(diff, five_i3);
         res;
     });
+#else
+    // this is same as the code above
+    Matrix lhs = matrix_subtract(
+        matrix_subtract(
+            matrix_power(matrix_clone(a), 2),
+            matrix_scale(a, 4)
+        ),
+        matrix_scale(matrix_mkunit(3), 5)
+    );
+#endif
     Matrix rhs = matrix_mknull(3, 3);
     printf("%s\n\n", matrix_equals(lhs, rhs) ? "true" : "false");
     matrix_free(&lhs);

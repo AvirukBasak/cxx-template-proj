@@ -1,4 +1,7 @@
 # CXX Template Project
+
+**Deprecated Template**: Please use CMake.
+
 This is a single makefile based project template for C/C++.
 
 It also takes into account presence of external libraries as dependencies.
